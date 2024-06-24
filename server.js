@@ -10,6 +10,10 @@ const db = require('./db')
 const bodyParser = require('body-parser')
 app.use(bodyParser.json());
 
+// Getting details from env
+require('dotenv').config();
+const PORT = process.env.PORT || 3000
+
 
 app.get('/', function (req, res) {
     res.send("Welcome to the Website , How can i help you ?")
@@ -23,6 +27,6 @@ app.use('/person', personServer)
 app.use('/menu', menuItem)
 
 
-app.listen(3000, function () {
+app.listen(PORT, function () {
     console.log("Server Listening on port 3000");
 })
