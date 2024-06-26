@@ -31,8 +31,8 @@ app.get('/',function (req, res) {
     res.send("Welcome to the Website , How can i help you ?")
 })
 
-const personServer = require('./ServerRouts/personRouts')
-const menuItem = require('./ServerRouts/menuItemRouts')
+const personServer = require('./Routes/personRouts')
+const menuItem = require('./Routes/menuItemRouts')
 
 
 app.use('/person',loginMWare, personServer)
