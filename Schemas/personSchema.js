@@ -33,6 +33,7 @@ const personSchema = new mongoose.Schema({
   username: {
     required: true,
     type: String,
+    unique: true,
   },
   password: {
     required: true,
@@ -42,7 +43,7 @@ const personSchema = new mongoose.Schema({
 
 personSchema.pre("save", async function (next) {
   const user = this;
-  if (!user.isModified('password')) return next();
+  if (!user.isModified("password")) return next();
 
   // Cnevrting string password into decrypt password
   try {
